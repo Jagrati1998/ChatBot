@@ -4,8 +4,10 @@ var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
 var users = {};
 var mongoose = require('mongoose');
-server.listen(3000, function () {
-    console.log("Server is up!");
+const Port = process.env.PORT || 3000;
+
+app.listen(Port, () => {
+    console.log('server started at port' + Port);
 });
 
 mongoose.connect('mongodb://localhost/cat', function (err) {
